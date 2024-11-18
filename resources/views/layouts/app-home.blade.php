@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="Dilyastrend is a systemic marketplace in progress that accepts crytocurrencies along with fiat as a mode of payment. It is not just an ordinary marketplace; we are uniquely designed to serve as utilities for crypto projects while making it accessible to everyone.">
@@ -10,7 +10,7 @@
     <meta name="keywords" content="eCommerce, Cryptocurrency, Web3.0, Blockchain, Job, Fashion, Artisan, Professional, Technology, Secure, Scalable, Maintainable">
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/dezenmart-fav.png') }}">
     <title>Dezenmart - Connecting You</title>
-    <link rel="icon" href="images/icon-red.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{ asset('assets/images/logo/dezenmart-fav.png') }}" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 
     <!-- CSS Files

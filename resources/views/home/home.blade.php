@@ -26,12 +26,12 @@
                             </h1>
 
                             <p class="wow fadeInUp lead animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">
-                                Unit of <span class="id-color-2"> data</span> stored on a digital ledger, called a blockchain, that certifies a digital asset to be unique and therefore not interchangeable
+                            <span class="id-color-2">Buy</span> anytime and anywhere, <span class="id-color-2">sell</span> anytime and anywhere.
                             </p>
 
                             <div class="spacer-10" style="background-size: cover;"></div>
 
-                            <a target="_blank" href="https://web.telegram.org" class="btn-main wow fadeInUp lead animated" data-wow-delay="1.25s" style="visibility: visible; animation-delay: 1.25s; animation-name: fadeInUp;">Explore</a>
+                            <a target="_blank" href="https://web.telegram.org" class="btn-main wow fadeInUp lead animated" data-wow-delay="1.25s" style="visibility: visible; animation-delay: 1.25s; animation-name: fadeInUp;">Start Now</a>
                                         
                             <div class="row" style="background-size: cover;">
                                 <div class="spacer-single" style="background-size: cover;"></div>
