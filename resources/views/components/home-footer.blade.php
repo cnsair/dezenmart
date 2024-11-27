@@ -1,13 +1,13 @@
-<footer><!-- footer begin -->
+<footer style="margin-top: 3rem"><!-- footer begin -->
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-1">
+            <div class="col-md-3 col-sm-6 col-xs-1" style="margin-top: 1.25rem">
                 <div class="widget">
                     <h5>Links</h5>
                     <ul>
-                        <li><a href="#about-us">About Us</a></li>
+                        <li><a href="{{ route('about-us') }}">About Us</a></li>
+                        <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
                         <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact-us">Contact Us</a></li>
                         <li><a href="#terms-and-conditions">Terms and Conditions</a></li>
                     </ul>
                 </div>
@@ -53,9 +53,11 @@
                         </div>
                         <div class="de-flex-col">
                             <div class="social-icons">
-                                <a href="#https://www.facebook.com/dilyastrend/"><i class="fa fa-facebook fa-lg"></i></a>
-                                <a href="#https://www.twitter.com/dilyastrend_1/"><i class="fa fa-twitter fa-lg"></i></a>
-                                <a href="#https://www.instagram.com/dilyastrend/"><i class="fa fa-instagram fa-lg"></i></a>
+                                <!-- <a target="_blank" href="#https://www.facebook.com/dilyastrend/"><i class="fa fa-facebook fa-lg"></i></a> -->
+                                <a target="_blank" href="https://twitter.com/Dezenmart_1/"><i class="fa fa-twitter fa-lg"></i></a>
+                                <a target="_blank" href="https://www.linkedin.com/company/dezenmart/"><i class="fa fa-linkedin fa-lg"></i></a>
+                                <a target="_blank" href="https://www.instagram.com/dezenmart/"><i class="fa fa-instagram fa-lg"></i></a>
+                                <a target="_blank" href="https://www.youtube.com/channel/UCPyREb0J2ZBwHdXTmSU4zSQ/"><i class="fa fa-youtube fa-lg"></i></a>
                             </div>
                         </div>
                     </div>

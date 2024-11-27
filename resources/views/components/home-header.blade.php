@@ -20,13 +20,14 @@
                     <div class="de-flex-col header-col-mid">
                         <!-- mainmenu begin -->
                         <ul id="mainmenu">
-                            <!-- <li><a class="nav-hd" href="#">Sign In</a></li>
-                            <li><a href="#">Register</a></li>  
-                            <li><a href="javascript:history.back();">&laquo;&laquo; back</a></li>  -->
+                            <li><a href="{{ route('register') }}">Register</a></li>  
+                            <li><a class="nav-hd" href="{{ route('login') }}">Sign In</a></li>
                         </ul>
                         <!-- mainmenu close -->
                         <div class="menu_side_area">
-                            <a href="https://web.telegram.org" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Start</span></a>
+                            <a href="https://web.telegram.org" class="btn-main btn-wallet">
+                                <i class="fa fa-telegram"></i><span>Start</span>
+                            </a>
                             <span id="menu-btn"></span>
                         </div>
                     </div>

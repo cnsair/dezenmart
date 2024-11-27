@@ -45,6 +45,26 @@
     <script src="{{ asset('assets/js/particles.js') }}"></script>
     <script src="{{ asset('assets/js/particles-settings.js') }}"></script>
         
+    <script>
+    
+        //For FORMS
+        // Disable buttons when clicked
+        //SignIn
+        function guestMessageF(form) {
+            form.guestMessage.disabled = true;
+            form.guestMessage.value = "Sending...";
+            return true;
+        }
+    
+        //Register
+        function registerF(form) {
+            form.register.disabled = true;
+            form.register.value = "Please wait...";
+            return true;
+        }
+    
+    </script>
+        
 </body>
 
 </html>

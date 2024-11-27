@@ -1,6 +1,7 @@
 <x-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        <div class="text-white">
+        {{ __('Profile Information') }}</div>
     </x-slot>
 
     <x-slot name="description">
@@ -28,7 +29,6 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-
                     @php
                         $file = $this->user->profile_photo_path;
                         $photo_path  = asset('storage/' . $file);
@@ -38,7 +38,7 @@
                     @if ($file)
                         <img src="{{ $photo_path }}" alt="{{ $this->user->firstname }}" class="rounded-full h-20 w-20 object-cover">
                     @else
-                        <img src="{{ asset('assets/img/logo/avatar.png') }}" class="rounded-full h-20 w-20 object-cover">
+                        <img src="{{ asset('assets/images/author/avatar.png') }}" class="rounded-full h-20 w-20 object-cover">
                     @endif
                 </div>
 
@@ -63,17 +63,26 @@
             </div>
         @endif
 
-        <!-- Name -->
+        <!-- Firstname -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="name" value="{{ __('Name') }}" />
-            <x-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" required autocomplete="name" />
-            <x-input-error for="name" class="mt-2" />
+            <x-label for="firstname" value="{{ __('Firstname') }}" />
+            <x-input id="firstname" type="text" class="mt-1 block w-full text-gray-100 bg-gray-900 border-gray-300 rounded-md shadow-sm" wire:model="state.firstname" required autocomplete="firstname" />
+                <!-- w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500
+                class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" -->
+            <x-input-error for="firstname" class="mt-2" />
+        </div>
+
+        <!-- Firstname -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="lastname" value="{{ __('Lastname') }}" />
+            <x-input id="lastname" type="text" class="mt-1 block w-full text-gray-100 bg-gray-900 border-gray-300 rounded-md shadow-sm" wire:model="state.lastname" required autocomplete="lastname" />
+            <x-input-error for="lastname" class="mt-2" />
         </div>
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('Email') }}" />
-            <x-input id="email" type="email" class="mt-1 block w-full" wire:model="state.email" required autocomplete="username" />
+            <x-input id="email" type="email" class="mt-1 block w-full text-gray-100 bg-gray-900 border-gray-300 rounded-md shadow-sm" wire:model="state.email" required autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())

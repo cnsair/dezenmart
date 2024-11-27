@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+
+            $table->string('firstname');
+            $table->string('lastname');
+            // 0 = Member; 1 = Admin;
+            $table->enum('role',[0,1])->default(0);
+            $table->boolean('is_admin')->default(false);
+            $table->boolean('is_member')->default(false);
+            // 1 = banned; 2 = suspended; 3 = inactive; 4 = active;
+            $table->enum('status',[1,2,3,4])->default(4);
+
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

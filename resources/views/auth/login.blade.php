@@ -1,65 +1,53 @@
-@extends('layouts.app-home')
+<x-guest-layout>
+    <x-authentication-card>
+        <x-slot name="logo">
+            <x-authentication-card-logo />
+        </x-slot>
 
-@section('content')
-        
-    <div class="no-bottom no-top" id="content">
-        <div id="top"></div>
-        
-        <section class="full-height relative no-top no-bottom vertical-center" data-bgimage="url(images/background/subheader-dark.jpg) top" data-stellar-background-ratio=".5">
-            <div class="overlay-gradient t50">
-                <div class="center-y relative">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-5 text-light wow fadeInRight" data-wow-delay=".5s">
-                                <div class="spacer-10"></div>
-                                <h1>Fast, secure and transparent marketplace.</h1>
-                                <p class="lead">Welcome to Dilyastrend. Your decentralized blockchain hub!</p>
-                            </div>
-                            
-                        <div class="col-lg-4 offset-lg-2 wow fadeIn" data-wow-delay=".5s">
-                            <div class="box-rounded padding40" data-bgcolor="#21273e">
+        <x-validation-errors class="mb-4" />
 
-                                <h3 class="mb10">Sign In</h3>
-
-                                <h4><x-validation-errors class="mb-4" /></h4>
-
-                                <p>Login using an existing account or create a new account <a href="register">here<span></span></a>.</p>
-                                
-                                <form class="form-border mb-4" name="contactForm" id='contact_form' method="POST" action="{{ route('login') }}" onsubmit="return signInF(this);">
-                                    @csrf
-                                <!-- <form name="contactForm" id='contact_form' class="form-border" method="post" action=''> -->
-
-                                    <div class="field-set">
-                                        <input type="text" tabindex="1" class="form-control" required name="UnameOrEmail" placeholder="Username or Email">
-                                    </div>
-                                    
-                                    <div class="field-set">
-                                        <input type="password" tabindex="2" class="form-control" required name="Password" placeholder="Password">
-
-                                        <small class="">
-                                            <a style="color: fff" href="forgot-password">Forgot Password?</a>
-                                        </small>
-                                    </div>
-                                    
-                                    <div class="spacer-single"></div>
-                                    
-                                    <div class="field-set">
-                                        <input class="btn btn-main btn-flat btn-fullwidth color-2" type="submit" id="contact-submit" data-submit="...Sending" name="signIn" value="SIGNIN">
-                                        <input type="hidden" name="INSERT" value="2">
-                                    </div>
-                                    
-                                    <div class="clearfix"></div>
-                                    
-                                    <div class="spacer-single"></div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+        @session('status')
+            <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
+                {{ $value }}
             </div>
-        </section>		
-        
-    </div>
+        @endsession
 
-@endsection
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+
+            <div>
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="block mt-1 w-full text-gray-100 bg-gray-900 border-gray-300 rounded-md shadow-sm" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" class="block mt-1 w-full text-gray-100 bg-gray-900 border-gray-300 rounded-md shadow-sm" type="password" name="password" required autocomplete="current-password" />
+            </div>
+
+            <div class="block mt-4">
+                <label for="remember_me" class="flex items-center">
+                    <x-checkbox id="remember_me" name="remember" />
+                    <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-400 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
+                &nbsp;&nbsp;&nbsp;
+
+                <a class="underline text-sm text-gray-400 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
+                    {{ __('Create account') }}
+                </a>
+
+                <x-button class="ms-4">
+                    {{ __('Log in') }}
+                </x-button>
+            </div>
+        </form>
+    </x-authentication-card>
+</x-guest-layout>
