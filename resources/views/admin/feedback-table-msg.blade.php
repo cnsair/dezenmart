@@ -17,7 +17,7 @@
                         @forelse ($feedbacks as $feedback)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <a class="font-semibold text-gray-800 hover:text-red-700" href="{{ route('guest-message.edit', ['feedback' => $feedback->id]) }}">
+                                    <a class="font-semibold text-blue-500 hover:text-blue-700" href="{{ route('guest-message.edit', ['feedback' => $feedback->id]) }}">
                                         {{ $feedback->name }}
                                     </a>
                                 </td>

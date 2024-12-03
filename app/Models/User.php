@@ -32,6 +32,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
+
     public function isAdmin()
     {
         if( $this->role == 1 && $this->is_admin == 1) { 

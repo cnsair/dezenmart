@@ -1,0 +1,32 @@
+.rounded-corner{
+    border-radius: 50%;
+}
+
+.company-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.one-line{
+    display: block;
+}
+.space{
+    padding: 0px 20px 0px 20px;
+}
+
+.oneline{
+    display: inline-flex !important;
+}
+
+.padn{
+    padding: 1%;
+}
+
+.product-img {
+    /* border-radius: 90%; */
+    object-fit: cover;
+    height: 110px;
+    /* width: 150px; */
+}

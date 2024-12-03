@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuestMessageController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,19 +50,39 @@ Route::group(['middleware' => 'auth'], function() {
         RedirectController::class, 'index'
     ]);
 
+
+    //===========================
+    // Common pages
+    //===========================
+
+    // List products
+    Route::get('/common/products', [ProductController::class, 'index'])
+    ->name('product.index');
+
+    // Add product
+    Route::get('/common/add-product', [ProductController::class, 'create'])
+        ->name('product.create');
+
+    // Save product
+    Route::post('/common/add-product', [ProductController::class, 'store'])
+        ->name('product.store');
+
+
+
     //===========================
     //Must be Admin
     //===========================
+
     Route::group(['middleware' => 'admin'], function() {
-        
-        //Collect data and render all
-        // Route::get('/admin/dashboard', [DashboardController::class, 'showInDashboard'])
-        //     ->name('admin.dashboard');
+
+        // View dashboard
+        Route::get('/admin/dashboard', [ProductController::class, 'test'])
+        ->name('admin.dashboard');
         
         //view dashboard
-        Route::get('/admin/dashboard', function () {
-            return view('admin.dashboard'); })
-            ->name('admin.dashboard');
+        // Route::get('/admin/dashboard', function () {
+        //     return view('admin.dashboard'); })
+        //     ->name('admin.dashboard');
 
         // store Contact Us/guest message
         Route::get('/admin/guest-message', [GuestMessageController::class, 'show'])
@@ -70,7 +91,7 @@ Route::group(['middleware' => 'auth'], function() {
         //Edit page
         Route::get('/admin/{feedback}/guest-message', [GuestMessageController::class,'edit'])
             ->name('guest-message.edit');
-    
+
         //delete action
         Route::delete('/admin/{feedback}/guest-message', [GuestMessageController::class, 'destroy'])
             ->name('guest-message.destroy');
@@ -132,4 +153,9 @@ Route::middleware([
         // return redirect()->route('redirects');
         abort(403, 'Unauthorised action!');
     })->name('dashboard');
+});
+
+
+Route::fallback(function () {
+    return 'Route not found!';
 });

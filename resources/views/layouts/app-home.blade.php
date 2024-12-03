@@ -23,6 +23,9 @@
     <!-- color scheme -->
     <link id="colors" href="{{ asset('assets/css/colors/scheme-04.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/coloring.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
 </head>
 
 <!-- <script src="https://widget.sirena.app/get?token=239c0a7aedcc438a97b79c810f642eaa"></script> -->

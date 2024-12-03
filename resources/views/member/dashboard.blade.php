@@ -4,14 +4,14 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    <div class="">
+    <div class="pb-20">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg"> 
                <!-- Begins here -->
                 
                <div class="relative">
-                    <x-products></x-products>  <!-- Include Product Section -->
-                    <x-services></x-services> <!-- Include Services Section -->
+                    <!-- Include Product Section -->
+                    <x-products :products="$products" />
                 </div>
 
             <!-- Ends here --> 
