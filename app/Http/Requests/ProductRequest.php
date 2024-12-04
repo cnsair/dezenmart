@@ -24,10 +24,10 @@ class ProductRequest extends FormRequest
         return [
             'category' => ['required', 'string', 'max:100'],
             'name' => ['required', 'string', 'min:2', 'max:255'],
-            'price' => ['required', 'numeric', 'min:0'],
-            'rrp' => ['nullable', 'numeric', 'min:0'],
+            'price' => ['required', 'numeric', 'min:1'],
+            'rrp' => ['nullable', 'numeric', 'min:1'],
             'description' => ['required', 'string', 'min:5', 'max:1000'],
-            'image' => ['required', 'mimes:jpeg,jpg,png', 'max:3072'], //3mb max
+            'image' => ['mimes:jpeg,jpg,png', 'max:3072'], //3mb max
         ];
     }
 }

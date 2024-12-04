@@ -13,15 +13,19 @@
     @endif
 
     <a href="#" class="text-white text-center">
-        <i class="fas fa-shopping-cart fa-lg"></i>
-        <span class="text-xs block">Cart</span>
+        <i class="fas fa-screwdriver-wrench fa-lg"></i>
+        <span class="text-xs block">Artisan</span>
+    </a>
+    <a href="#" class="text-white text-center">
+        <i class="fas fa-right-left fa-lg"></i>
+        <span class="text-xs block">DeFi</span>
+    </a>
+    <a href="#" class="text-white text-center">
+        <i class="fas fa-folder fa-lg"></i>
+        <span class="text-xs block">Project</span>
     </a>
     <a href="{{ route('profile.show') }}" class="text-white text-center">
         <i class="fas fa-user fa-lg"></i>
         <span class="text-xs block">Profile</span>
-    </a>
-    <a href="#" class="text-white text-center">
-        <i class="fas fa-wallet fa-lg"></i>
-        <span class="text-xs block">Wallet</span>
     </a>
 </nav>

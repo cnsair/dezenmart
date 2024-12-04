@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -18,7 +22,6 @@ class ProductController extends Controller
         $products = Product::query()->orderBy('id', 'desc')->paginate(20);
         // return view('common.products', compact('products'));
         return view('common.products')->with('products', $products);
-        // return view('common.test');
 
         // \Illuminate\Support\Facades\Log::info('Products: ' . $products);
         // tail -f storage/logs/laravel.log
@@ -27,10 +30,16 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function test()
+    public function temporary()
     {
-        $products = Product::query()->orderBy('id', 'desc')->paginate(2);
-        return view('admin.dashboard', compact('products'));
+        $products = Product::query()->orderBy('id', 'desc')->paginate(10);
+        
+        if( Auth::user()->isAdmin() ){
+            return view('admin.dashboard', compact('products'));
+        }else{
+            // return view('common.products', compact('products'));
+            return Redirect::route('product.index');
+        }
     }
 
     /**
@@ -38,6 +47,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Product::class);
         return view('common.add-product');
     }
 
@@ -51,17 +61,21 @@ class ProductController extends Controller
         // Checks status of file selected: Max file size is 10,240mb
         if ( $request ) { 
 
-            $book = new Product();
+            $product = new Product();
 
-            $book->user_id = Auth::user()->id;
-            $book->category = $request->input('category');
-            $book->name = $request->input('name');
-            $book->price = $request->input('price');
-            $book->rrp = $request->input('rrp');
-            $book->description = $request->input('description');
-            $book->image = $request->file('image')->store('product', 'public');
+            $product->user_id = Auth::user()->id;
+            $product->category = $request->input('category');
+            $product->name = $request->input('name');
+            $product->price = $request->input('price');
+            $product->rrp = $request->input('rrp');
+            $product->description = $request->input('description');
 
-            $book->save();
+            // Handle file upload
+            if ($request->hasFile('image')) {
+                $product->image = $request->file('image')->store('product', 'public');
+            }
+
+            $product->save();
 
             return Redirect::route('product.create')->with('status', 'success');
         }
@@ -73,9 +87,13 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($product)
     {
-       //
+        // $product = Product::findOrFail($product);
+        // return view('common.show-product', compact('product'));
+
+        $product = Product::with('user')->findOrFail($product); // Eager load user
+        return view('common.show-product', compact('product'));
     }
 
     /**
@@ -83,22 +101,58 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $this->authorize('update', $product);
+
+        return view('common.edit-product', ['product' => $product]);
+        // \Illuminate\Support\Facades\Log::info($product);
+        // dd($product);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, $product)
     {
-        //
+        $product = Product::findOrFail($product);
+        $this->authorize('update', $product);
+
+        $request->user()->fill($request->validated());
+
+        if ( $request ) {
+            // $product = Product::findorFail($product);
+
+            $product->category = $request->input('category');
+            $product->name = $request->input('name');
+            $product->price = $request->input('price');
+            $product->rrp = $request->input('rrp');
+            $product->description = $request->input('description');
+            
+            if ( $request->file('image') ) {
+                Storage::disk('public')->delete($product->image); //delete old file
+                $product->image = $request->file('image')->store('product', 'public'); //upload new file
+            }
+
+            $product->update();
+
+            return Redirect::route('product.edit', ['product' => $product])->with('status', 'success');
+        }
+        else{
+            return Redirect::route('product.edit', ['product' => $product])->with('status', 'failed');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($product)
     {
-        //
+        $product = Product::findOrFail($product);
+        $this->authorize('delete', $product);
+        $product->delete();
+
+        // Delete the profile picture from storage
+        Storage::disk('public')->delete($product->image);
+
+        return Redirect::route('product.index')->with('status', 'success');
     }
 }

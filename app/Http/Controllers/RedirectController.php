@@ -21,7 +21,7 @@ class RedirectController extends Controller
         switch ($role) {
 
             case 0:
-                return redirect()->route('member.dashboard');
+                return redirect()->route('product.index');
                 // return redirect()->action([MemberController::class, 'index']);
             case 1:
                 return redirect()->route('admin.dashboard');

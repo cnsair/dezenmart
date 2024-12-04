@@ -7,9 +7,9 @@
 
             <!-- Product Row with Adjusted Layout -->
             @forelse ( $products as $product )
-                
-                <div class="flex bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden">
-                    <!-- Image fills the left part -->
+
+                <div class="flex bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden relative">
+                    <!-- Product Image -->
                     <div class="relative w-24 sm:w-32 flex-shrink-0">
                         @php
                             $image = $product->image;
@@ -21,24 +21,51 @@
                             <del>{{ $product->rrp }}</del>
                         </div>
                     </div>
+
                     <!-- Product Details -->
                     <div class="p-3 flex-1">
-                        <h3 class="text-lg sm:text-xl font-semibold text-gray-200">Product 1</h3>
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-500 hover:text-blue-700">
+                            <a href="{{ route('product.show', $product->id) }}">
+                                {{ $product->name }}
+                            </a>
+                        </h3>
                         <p class="text-xs sm:text-sm text-gray-400 mt-1">
-                            {{ Str::limit($product->description, 100) }}
+                            {{ Str::limit($product->description, 50) }}
                         </p>
                         <div class="flex justify-between items-center mt-3">
                             <span class="text-base font-bold text-gray-200">
                                 ${{ number_format($product->price, 2, '.', ',') }}
                             </span>
-                            
                             <button class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium py-1 px-3 rounded">
                                 Add to Cart
                             </button>
                         </div>
                     </div>
+
+                    <!-- Edit and Delete Icons -->
+                    <div class="absolute top-2 right-2 flex space-x-2">
+
+                        <!-- Allow authorized users to edit a job -->
+                        @can('update', $product)
+                            <a href="{{ route('product.edit', $product->id) }}" class="text-sm text-yellow-500 p-2 rounded-full">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        @endcan
+
+                        <!-- Allow authorized to delete a job -->
+                        @can('delete', $product)
+                            <form action="{{ route('product.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-sm text-red-500 p-2 rounded-full">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        @endcan
+
+                    </div>
                 </div>
-                       
+ 
             @empty
                 <p class="font-bold mt-5 ml-5 list-disc list-inside text-red-500">
                     Whoops.. No product to display now. Please check back later.
@@ -51,28 +78,6 @@
                     {{ $products->links() }}
                 </div>
             @endif
-
-            <!-- Repeat for More Products -->
-            <!-- <div class="flex bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden">
-                <div class="relative w-24 sm:w-32 flex-shrink-0">
-                    <img class="h-full w-full object-cover" src="{{-- asset('assets/images/news/news-4.jpg') --}}" alt="Product 2">
-                    
-                    <div class="absolute top-1 left-1 bg-red-500 text-xs text-white font-semibold px-2 py-1 rounded-full">20% Off</div>
-                </div>
-                <div class="p-3 flex-1">
-                    <h3 class="text-lg sm:text-xl font-semibold text-gray-200">Product 2</h3>
-                    <p class="text-xs sm:text-sm text-gray-400 mt-1">
-                        Warren Buffett, likely the largest philanthropist of all time, according to Forbes estimates, upped his giving by more than $1 billion.
-                    </p>
-                    <div class="flex justify-between items-center mt-3">
-                        <span class="text-base font-bold text-gray-200">$42.99</span>
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium py-1 px-3 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div> -->
-            <!-- More products here -->
 
         </div>
     </div>

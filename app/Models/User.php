@@ -36,7 +36,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
-
+    
+    /**
+     * @method bool isAdmin() Check if the user is an admin
+     */
     public function isAdmin()
     {
         if( $this->role == 1 && $this->is_admin == 1) { 
@@ -49,7 +52,7 @@ class User extends Authenticatable
 
     public function isMember()
     {
-        if( $this->role == 0 && $this->is_member == 0) { 
+        if( $this->role == 0 && $this->is_member == 1) { 
             return true; 
         } 
         else { 

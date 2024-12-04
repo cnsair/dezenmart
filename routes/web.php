@@ -67,6 +67,22 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/common/add-product', [ProductController::class, 'store'])
         ->name('product.store');
 
+    // view edit product
+    Route::get('/common/{product}/show-product', [ProductController::class, 'show'])
+        ->name('product.show');
+
+    // view edit product
+    Route::get('/common/{product}/edit-product', [ProductController::class, 'edit'])
+        ->name('product.edit');
+
+    // view edit product
+    Route::patch('/common/{product}/edit-product', [ProductController::class, 'update'])
+        ->name('product.update');
+
+    // view edit product
+    Route::delete('/common/{product}/show-product', [ProductController::class, 'destroy'])
+        ->name('product.destroy');
+
 
 
     //===========================
@@ -76,7 +92,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'admin'], function() {
 
         // View dashboard
-        Route::get('/admin/dashboard', [ProductController::class, 'test'])
+        Route::get('/admin/dashboard', [ProductController::class, 'temporary'])
         ->name('admin.dashboard');
         
         //view dashboard
@@ -109,10 +125,14 @@ Route::group(['middleware' => 'auth'], function() {
     //===========================
     Route::group(['middleware' => 'member'], function() {
 
+        // View dashboard
+        Route::get('/member/dashboard', [ProductController::class, 'temporary'])
+        ->name('member.dashboard');
+
         //view dashboard
-        Route::get('/member/dashboard', function () {
-            return view('member.dashboard'); })
-            ->name('member.dashboard');
+        // Route::get('/member/dashboard', function () {
+        //     return view('member.dashboard'); })
+        //     ->name('member.dashboard');
 
         //view payment page
         Route::get('/member/full-access', function () {

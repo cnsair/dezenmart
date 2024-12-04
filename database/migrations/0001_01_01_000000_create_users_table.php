@@ -19,7 +19,7 @@ return new class extends Migration
             // 0 = Member; 1 = Admin;
             $table->enum('role',[0,1])->default(0);
             $table->boolean('is_admin')->default(false);
-            $table->boolean('is_member')->default(false);
+            $table->boolean('is_member')->default(true);
             // 1 = banned; 2 = suspended; 3 = inactive; 4 = active;
             $table->enum('status',[1,2,3,4])->default(4);
 

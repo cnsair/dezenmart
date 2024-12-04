@@ -19,7 +19,7 @@ class MemberMiddleware
         $role = Auth::user()->role;
         $is_member = Auth::user()->is_member;
 
-        if ( $role == 0 && $is_member == 0){
+        if ( $role == 0 && $is_member == 1){
             return $next($request);
         }else{
             // return redirect()->route('login');
