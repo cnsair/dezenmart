@@ -1,4 +1,4 @@
-<header class="transparent">
+<header class="transparent position-fixed top-0 start-0 w-100">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -26,7 +26,7 @@
                         <!-- mainmenu close -->
                         <div class="menu_side_area">
                             <a href="https://web.telegram.org" class="btn-main btn-wallet">
-                                <i class="fa fa-telegram"></i><span>Start</span>
+                                <i class="fa-brands fa-telegram"></i><span>Start</span>
                             </a>
                             <span id="menu-btn"></span>
                         </div>

@@ -20,6 +20,9 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/de-grey.css') }}" rel="stylesheet" type="text/css" />
 
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
     <!-- color scheme -->
     <link id="colors" href="{{ asset('assets/css/colors/scheme-04.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/coloring.css') }}" rel="stylesheet" type="text/css" />

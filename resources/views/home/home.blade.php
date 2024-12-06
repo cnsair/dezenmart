@@ -22,7 +22,7 @@
                             <div class="spacer-10" style="background-size: cover;"></div>
 
                             <h1 class="wow fadeInUp animated" data-wow-delay=".75s" style="visibility: visible; animation-delay: 0.75s; animation-name: fadeInUp;">
-                                A CrossFiChain secure, fast, transparent and user friendly <span class="id-color-2">Telegram</span> marketplace.
+                                Secure, fast, transparent, user-friendly marketplace on <span class="id-color-2">CrossFiChain</span>
                             </h1>
 
                             <p class="wow fadeInUp lead animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">
@@ -33,7 +33,7 @@
 
                             <a target="_blank" href="https://web.telegram.org" class="btn-main wow fadeInUp lead animated" data-wow-delay="1.25s" style="visibility: visible; animation-delay: 1.25s; animation-name: fadeInUp;">Start Now</a>
                                         
-                            <div class="row" style="background-size: cover;">
+                            <div class="row xs-hide" style="background-size: cover;">
                                 <div class="spacer-single" style="background-size: cover;"></div>
                                 <div class="row" style="background-size: cover;">
                                         <div class="col-lg-4 col-md-6 col-sm-4 wow fadeInRight mb30 animated" data-wow-delay="1.1s" style="background-size: cover; visibility: visible; animation-delay: 1.1s; animation-name: fadeInRight;">
