@@ -19,11 +19,6 @@
                         <x-nav-link href="{{ route('guest-message.show') }}" :active="request()->routeIs('guest-message.show')">
                             {{ __('Feedbacks') }}
                         </x-nav-link>
-
-                    @elseif  ( Auth::user()->isMember() )
-                        <x-nav-link href="{{ route('member.dashboard') }}" :active="request()->routeIs('member.dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
                     @endif
             
                     <x-nav-link href="{{ route('product.index') }}" :active="request()->routeIs('product.index')">
@@ -128,12 +123,6 @@
 
                 <x-responsive-nav-link href="{{ route('guest-message.show') }}" :active="request()->routeIs('guest-message.show') || request()->routeIs('guest-message.show')">
                     {{ __('Feedbacks') }}
-                </x-responsive-nav-link>
-
-            <!-- Only Admin have access -->
-            @elseif ( Auth::user()->isMember() )
-                <x-responsive-nav-link href="{{ route('member.dashboard') }}" :active="request()->routeIs('member.dashboard')">
-                    {{ __('Dashboard') }}
                 </x-responsive-nav-link>
             @endif
             

@@ -7,8 +7,9 @@
                     <ul>
                         <li><a href="{{ route('about-us') }}">About Us</a></li>
                         <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#terms-and-conditions">Terms and Conditions</a></li>
+                        <li><a target="_blank" href="https://medium.com/@dezenmart">Blog</a></li>
+                        <li><a href="{{ route('terms.show') }}">Terms and Conditions</a></li>
+                        <li><a href="{{ route('policy.show') }}">Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,8 +47,9 @@
                         <div class="de-flex-col">
                             <!-- <a href="03_grey-index.html"> -->
                             <span class="">
-                                &copy; Copyright <script>document.write(new Date().getFullYear());</script>. 
-                                All rights reserved. Built by Dezenmart & <a target="_blank" href="https://chisomsamson.me"><span class="id-color-2">Chisom Samson</span></a>. 
+                                &copy; <script>document.write(new Date().getFullYear());</script> Dezenmart. 
+                                All rights reserved. 
+                                <!-- Built by Dezenmart & <a target="_blank" href="https://chisomsamson.me"><span class="id-color-2">Chisom Samson</span></a>.  -->
                             </span>
                             <!-- </a> -->
                         </div>

@@ -16,7 +16,7 @@
 
             <div class="mt-4">
                 <x-label for="lastname" value="{{ __('Lastname') }}" />
-                <x-input id="lastname" class="block mt-1 w-full text-gray-100 bg-gray-900 border-gray-300 rounded-md shadow-sm" type="text" name="lastname" :value="old('lastname')" required utocomplete="lastname" />
+                <x-input id="lastname" class="block mt-1 w-full text-gray-100 bg-gray-900 border-gray-300 rounded-md shadow-sm" type="text" name="lastname" :value="old('lastname')" required autocomplete="lastname" />
             </div>
 
             <div class="mt-4">
@@ -39,7 +39,6 @@
                     <x-label for="terms">
                         <div class="flex items-center">
                             <x-checkbox name="terms" id="terms" required />
-
                             <div class="ms-2">
                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
                                     'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-400 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">'.__('Terms of Service').'</a>',

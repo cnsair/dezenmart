@@ -176,6 +176,6 @@ Route::middleware([
 });
 
 
-Route::fallback(function () {
-    return 'Route not found!';
-});
+// Route::fallback(function () {
+//     return 'Route not found!';
+// });
