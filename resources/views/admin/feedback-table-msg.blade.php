@@ -32,7 +32,7 @@
                                     <form action="{{ route('guest-message.destroy', ['feedback' => $feedback->id]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <x-danger-button type="submit" onclick="return confirm('Are you sure you want to permanently delete this job record?');">
+                                        <x-danger-button type="submit" onclick="return confirm('Are you sure you want to permanently delete this guest\'s message?');">
                                             {{ __('Delete') }}
                                         </x-danger-button>
                                     </form>

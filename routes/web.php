@@ -46,10 +46,9 @@ Route::middleware('guest')->group(function () {
 Route::group(['middleware' => 'auth'], function() {
 
     //Main Redirect Controller
-    Route::get('redirects', [
-        RedirectController::class, 'index'
-    ]);
-
+    Route::get('redirects', [RedirectController::class, 'index'])
+    ->name('user.redirect');
+    
 
     //===========================
     // Common pages
@@ -170,8 +169,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         // return view('dashboard');
-        // return redirect()->route('redirects');
-        abort(403, 'Unauthorised action!');
+        return redirect()->route('user.redirect');
+        // abort(403, 'Unauthorised action!');
     })->name('dashboard');
 });
 
