@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function() {
     //Main Redirect Controller
     Route::get('redirects', [RedirectController::class, 'index'])
     ->name('user.redirect');
-    
+
 
     //===========================
     // Common pages
@@ -152,7 +152,11 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 
-
+// Disable the registration route
+Route::get('/register', function () {
+    return redirect('/')->with('error', 'Registration is disabled!');
+    // abort(403, 'Registration is disabled!');
+})->name('register');
 
 
 

@@ -19,7 +19,6 @@ class RedirectController extends Controller
         }
 
         switch ($role) {
-
             case 0:
                 return redirect()->route('product.index');
                 // return redirect()->action([MemberController::class, 'index']);
@@ -28,8 +27,6 @@ class RedirectController extends Controller
                 // return redirect()->action([AdminController::class, 'index']);
             default:
                 return redirect()->route('login');
-                
         }
     }
-
 }

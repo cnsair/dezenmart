@@ -12,6 +12,18 @@
             <div class="v-center" style="background-size: cover;">
                 <div class="container" style="background-size: cover;">
                     <div class="row align-items-center" style="background-size: cover;">
+                           
+                        @if(session('error'))
+                            <div class="col-md-6 offset-md-3">
+                                <div class="position-fixed top-50 start-50 translate-middle text-center" style="z-index: 1050;">
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>{{ session('error') }}</strong>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="col-md-6" style="background-size: cover;">
                             <div class="spacer-single" style="background-size: cover;"></div>
 
@@ -22,11 +34,12 @@
                             <div class="spacer-10" style="background-size: cover;"></div>
 
                             <h1 class="wow fadeInUp animated" data-wow-delay=".75s" style="visibility: visible; animation-delay: 0.75s; animation-name: fadeInUp;">
-                                Secure, fast, transparent, user-friendly marketplace on <span class="id-color-2">CrossFiChain</span>
+                                Decentralized marketplace on  <span class="id-color-2">Telegram</span> built on <span class="id-color-2">CrossFiChain</span>
                             </h1>
 
                             <p class="wow fadeInUp lead animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">
-                            <span class="id-color-2">Buy</span> anytime and anywhere, <span class="id-color-2">sell</span> anytime and anywhere.
+                            <span class="id-color-2">Buy</span> anytime and anywhere <br/> 
+                            <span class="id-color-2">Sell</span> anytime and anywhere.
                             </p>
 
                             <div class="spacer-10" style="background-size: cover;"></div>
@@ -60,7 +73,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 xs-hide" style="background-size: cover;">
-                            <img src="assets/images/gallery/women-with-vr-2.png" class="img-fluid wow fadeInUp animated" data-wow-delay=".75s" alt="" style="visibility: visible; animation-delay: 0.75s; animation-name: fadeInUp;">
+                            <img src="{{ asset('assets/images/gallery/dezenmart-home.png') }}" class="img-fluid wow fadeInUp animated" data-wow-delay=".75s" alt="" style="visibility: visible; animation-delay: 0.75s; animation-name: fadeInUp;">
                         </div>
                     </div>
                 </div>

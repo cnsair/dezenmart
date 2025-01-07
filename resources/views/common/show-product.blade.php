@@ -43,9 +43,18 @@
 
                                 <!-- Advertiser, Date, Category, Discount -->
                                 <div class="text-sm text-gray-300 space-y-2 mb-6">
-                                    <p><span class="font-bold">Advertiser:</span> {{ ($product->user->firstname ." ". $product->user->lastname ) ?? 'Unknown' }}</p>
-                                    <p><span class="font-bold">Date Posted:</span> {{ $product->created_at->diffForHumans() }}</p>
-                                    <p><span class="font-bold">Category:</span> {{ $product->category ?? 'Uncategorized' }}</p>
+                                    <p>
+                                        <span class="font-bold">Advertiser:</span> 
+                                        {{ ($product->user->firstname ." ". $product->user->lastname ) ?? 'Unknown' }}
+                                    </p>
+                                    <p>
+                                        <span class="font-bold">Date Posted:</span> 
+                                        {{ $product->created_at->diffForHumans() }}
+                                    </p>
+                                    <p>
+                                        <span class="font-bold">Category:</span> 
+                                        {{ $product->category ?? 'Uncategorized' }}
+                                    </p>
                                 </div>
 
                                 <!-- Add to Cart Button -->

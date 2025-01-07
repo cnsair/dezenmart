@@ -38,11 +38,11 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-                &nbsp;&nbsp;&nbsp;
+                <!-- &nbsp;&nbsp;&nbsp; -->
 
-                <a class="underline text-sm text-gray-400 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
-                    {{ __('Create account') }}
-                </a>
+                <!-- <a class="underline text-sm text-gray-400 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{-- route('register') --}}">
+                    {{-- __('Create account') --}}
+                </a> -->
 
                 <x-button class="ms-4">
                     {{ __('Log in') }}

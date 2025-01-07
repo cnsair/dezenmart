@@ -56,7 +56,7 @@
                         <div class="de-flex-col">
                             <div class="social-icons">
                                 <!-- <a target="_blank" href="#https://www.facebook.com/dilyastrend/"><i class="fa fa-facebook fa-lg"></i></a> -->
-                                <a target="_blank" href="https://twitter.com/Dezenmart_1/"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                                <a target="_blank" href="https://x.com/Dezenmart/"><i class="fa-brands fa-twitter fa-lg"></i></a>
                                 <a target="_blank" href="https://vm.tiktok.com/ZMh3gucmW/"><i class="fa-brands fa-tiktok fa-lg"></i></a>
                                 <a target="_blank" href="https://www.instagram.com/dezenmart/"><i class="fa-brands fa-instagram fa-lg"></i></a>
                                 <a target="_blank" href="https://www.youtube.com/channel/UCPyREb0J2ZBwHdXTmSU4zSQ/"><i class="fa-brands fa-youtube fa-lg"></i></a>

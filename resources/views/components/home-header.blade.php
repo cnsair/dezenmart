@@ -20,8 +20,8 @@
                     <div class="de-flex-col header-col-mid">
                         <!-- mainmenu begin -->
                         <ul id="mainmenu">
-                            <li><a href="{{ route('register') }}">Register</a></li>  
-                            <li><a class="nav-hd" href="{{ route('login') }}">Sign In</a></li>
+                            <!-- <li><a href="{{-- route('register') --}}">Register</a></li>   -->
+                            <li><a class="nav-hd" href="{{ route('login') }}">Admin: Sign In</a></li>
                         </ul>
                         <!-- mainmenu close -->
                         <div class="menu_side_area">
