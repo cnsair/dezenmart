@@ -11,6 +11,17 @@
                 {{ $value }}
             </div>
         @endsession
+                           
+        @if(session('error'))
+            <div class="col-md-6 offset-md-3">
+                <div class="position-fixed top-50 start-50 translate-middle text-center" style="z-index: 1050;">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{ session('error') }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        @endif
 
         <form method="POST" action="{{ route('login') }}">
             @csrf

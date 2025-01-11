@@ -5,7 +5,7 @@
     <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="description" content="DezenMart is shaping the future of e-commerce. It is a decentralized marketplace designed to empower artisans, creators, and small businesses by connecting them directly with buyers through a secure and transparent platform.">
+    <meta name="description" content="DezenMart is shaping the future of eCommerce. It is a decentralized marketplace designed to empower artisans, creators, and small businesses by connecting them directly with buyers through a secure and transparent platform.">
     <meta name="author" content="Dezenmart IT Team, CNScomputers">
     <meta name="keywords" content="eCommerce, Cryptocurrency, Web3.0, Blockchain, Job, Fashion, Artisan, Professional, Technology, Secure, Scalable, Maintainable">
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/dezenmart-fav.png') }}">
