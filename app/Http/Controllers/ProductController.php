@@ -127,9 +127,19 @@ class ProductController extends Controller
             $product->rrp = $request->input('rrp');
             $product->description = $request->input('description');
             
-            if ( $request->file('image') ) {
-                Storage::disk('public')->delete($product->image); //delete old file
-                $product->image = $request->file('image')->store('product', 'public'); //upload new file
+            // if ( $request->file('image') ) {
+            //     Storage::disk('public')->delete($product->image); //delete old file
+            //     $product->image = $request->file('image')->store('product', 'public'); //upload new file
+            // }
+
+            if (!empty($request->file('image'))) {
+                // Check if a file exists before deleting
+                if (!empty($product->image) && Storage::disk('public')->exists($product->image)) {
+                    Storage::disk('public')->delete($product->image); // Delete old file
+                }
+            
+                // Upload the new file
+                $product->image = $request->file('image')->store('product', 'public');
             }
 
             $product->update();
@@ -150,8 +160,10 @@ class ProductController extends Controller
         $this->authorize('delete', $product);
         $product->delete();
 
-        // Delete the profile picture from storage
-        Storage::disk('public')->delete($product->image);
+        // Check if a file exists before deleting
+        if (!empty($product->image) && Storage::disk('public')->exists($product->image)) {
+            Storage::disk('public')->delete($product->image); // Delete old file
+        }
 
         return Redirect::route('product.index')->with('status', 'success');
     }
