@@ -123,4 +123,28 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | TELEGRAM
+    |--------------------------------------------------------------------------
+    |
+    | Only Laravel version 5.5 or greater supported by the library!
+    / If you are using Laravel, the library will self-register its ServiceProvider 
+    / and Facade using Laravel's auto-discovery. If you turned off auto-discovery 
+    / for some reason, you need to register service provider and facade manually 
+    / in config/app.php
+    |
+    */
+
+    // 'providers' => [
+    //     /*
+    //     * Package Service Providers...
+    //     */
+    //     WeStacks\TeleBot\Laravel\Providers\TeleBotServiceProvider::class,
+    // ],
+    // 'aliases' => [
+    //     'TeleBot' => WeStacks\TeleBot\Laravel\TeleBot::class,
+    // ]
+
+
 ];
