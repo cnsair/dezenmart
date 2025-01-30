@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 //=======================================
 Route::post('/telegram/webhook', [TelegramController::class, 'webhook']);
 
-
 //Testing 
 Route::get('/send-message', function () {
     $chatId = '934764770'; // Replace with your chat ID

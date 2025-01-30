@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="DezenMart is shaping the future of eCommerce. It is a decentralized marketplace designed to empower artisans, creators, and small businesses by connecting them directly with buyers through a secure and transparent platform.">
