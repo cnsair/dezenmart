@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Telegram\Bot\Laravel\Facades\Telegram;
 use WeStacks\TeleBot\TeleBot;
@@ -55,6 +56,8 @@ class TelegramController extends Controller
 
         $update = Telegram::getWebhookUpdates();
 
+        Log::info('Webhook received update: ', [$update]);
+
         if ($update->isType('message')) {
             $message = $update->getMessage();
             $chatId = $message->getChat()->getId();
@@ -81,20 +84,6 @@ class TelegramController extends Controller
         }
     
         return response()->json(['status' => 'ok']);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
