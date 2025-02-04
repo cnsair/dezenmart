@@ -28,11 +28,13 @@ class TelegramController extends Controller
 
     public function webhook()
     {
-        // $update = Telegram::getWebhookUpdates();
+        $update = Telegram::getWebhookUpdates();
 
         // // Process the update (e.g., command, message, etc.)
         // if ($update->isType('message')) {
-        //     $chatId = $update->getMessage()->getChat()->getId();
+        //     // $chatId = $update->getMessage()->getChat()->getId();
+          
+        //     $chatId = '934764770';
         //     $text = $update->getMessage()->getText();
         //     // $userRole = $this->determineRole($chatId); // Define logic for role
 
@@ -54,13 +56,13 @@ class TelegramController extends Controller
         //=============================================================
 
 
-        $update = Telegram::getWebhookUpdates();
-
         Log::info('Webhook received update: ', [$update]);
 
         if ($update->isType('message')) {
             $message = $update->getMessage();
-            $chatId = $message->getChat()->getId();
+            // $chatId = $message->getChat()->getId();
+            $chatId = '934764770';
+            
             $username = $message->getChat()->getUsername() ?? 'No Username';
             $text = $message->getText();
     

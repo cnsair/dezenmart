@@ -38,6 +38,10 @@ Route::get('/get-webhook-info', function () {
     return response()->json($webhookInfo);
 });
 
+Route::get('/get-webhook-updates', function () {
+    $webhook_update = Telegram::getWebhookUpdates();
+    return response()->json($webhook_update);
+});
 
 // Create a Laravel Route to Handle Commands
 // Route::post('/telegram/webhook', function (Request $request) {
