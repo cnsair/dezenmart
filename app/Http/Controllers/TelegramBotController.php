@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use WeStacks\TeleBot\TeleBot;
+use Exception;
 
 class TelegramBotController extends Controller
 {
     //+++++++++++++++++++++++++++++++++++++++
     private $bot;
     private $message_text;
-    private $chat_id = 934764770;
+    private $chat_id = '934764770';
     //+++++++++++++++++++++++++++++++++++++++
     public function __construct()
     {
-        $this->bot = new TeleBot('YOUR TOKEN');
+        $this->bot = new TeleBot('7895277118:AAH3QYsWIoVIFy7O9gD753JqjbWbXIuXD4U');
     }
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public function index()
@@ -28,7 +29,10 @@ class TelegramBotController extends Controller
         //+++++++++++++++++++++++++++++++++++++++++
         //Webhook
         //+++++++++++++++++++++++++++++++++++++++++
-        $data = json_decode($request->all());
+
+        // $data = json_decode($request->all());
+
+        $data = json_decode($request->getContent());
         if ($data) {
             $this->chat_id      = $data->message->chat->id;
             $this->message_text = $data->message->text;
@@ -40,11 +44,11 @@ class TelegramBotController extends Controller
         try {
             $message = $this->bot->sendMessage([
                 'chat_id'      => $this->chat_id,
-                'text'         => 'Welcome To Code-180 Youtube Channel',
+                'text'         => 'Welcome To Dezenmart. Lets Start',
                 'reply_markup' => [
                     'inline_keyboard' => [[[
-                        'text' => '@code-180',
-                        'url'  => 'https://www.youtube.com/@code-180/videos',
+                        'text' => 'Dezenmart',
+                        'url'  => 'https://www.dezenmart.com/',
                     ]]],
                 ],
             ]);
@@ -70,8 +74,8 @@ class TelegramBotController extends Controller
             $message = $this->bot->sendPhoto([
                 'chat_id' => $this->chat_id,
                 'photo'   => [
-                    'file'     => fopen(asset('public/upload/img.jpg'), 'r'),
-                    'filename' => 'demoImg.jpg',
+                    'file'     => fopen(asset('assets/images/gallery/women-with-vr-2.png'), 'r'),
+                    'filename' => 'women-with-vr-2.png',
                 ],
             ]);
         } catch (Exception $e) {
