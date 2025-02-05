@@ -16,7 +16,7 @@ class TelegramBotController extends Controller
     //+++++++++++++++++++++++++++++++++++++++
     public function __construct()
     {
-        $this->bot = new TeleBot('7895277118:AAH3QYsWIoVIFy7O9gD753JqjbWbXIuXD4U');
+        $this->bot = new TeleBot(env('TELEGRAM_BOT_TOKEN'));
     }
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public function index()
