@@ -22,7 +22,7 @@
                             <div class="spacer-10" style="background-size: cover;"></div>
 
                             <h1 class="wow fadeInUp animated" data-wow-delay=".75s" style="visibility: visible; animation-delay: 0.75s; animation-name: fadeInUp;">
-                                Decentralized marketplace on  <span class="id-color-2">Telegram</span> built on <span class="id-color-2">CrossFiChain</span>
+                                Your one-stop <span class="id-color-2">Decentralized marketplace</span>
                             </h1>
 
                             <p class="wow fadeInUp lead animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">
